@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  shadowgenerator:
+    build: .
+    command: "npm run serve"
+    volumes:
+      - .:/shadowgenerator
+      - /shadowgenerator/node_modules/
+    ports:
+      - 8080:8080
