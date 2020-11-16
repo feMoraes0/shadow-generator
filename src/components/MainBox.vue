@@ -1,23 +1,28 @@
 <template>
   <div id="main-box">
     <div class="column">
-      <p>Controls</p>
+      <Identification name="Controls" />
     </div>
     <div class="column">
       <div class="row">
-        <p>Main Body</p>
+        <Identification name="Result" />
       </div>
       <div class="row">
-        <p>Results</p>
+        <Identification name="Code" />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'MainBox'
-}
+  import Identification from "./Identification";
+
+  export default {
+    name: 'MainBox',
+    components: {
+      Identification,
+    }
+  }
 </script>
 
 <style scoped>
@@ -35,11 +40,12 @@ export default {
 
 .column, .row {
   position: relative;
-  border: 1px solid purple;
 }
 
 .column:first-child {
   width: 30%;
+  padding: 5px;
+  background-color: var(--background-detail-colour);
 }
 
 .column:last-child {
@@ -50,11 +56,18 @@ export default {
 }
 
 .row:first-child {
-  height: 70%;
+  height: 65%;
+  padding: 5px;
+  border: 2px solid var(--background-detail-colour);
+  border-left: none;
+  border-bottom: none;
 }
 
 .row:last-child {
-  height: 30%;
+  height: 35%;
+  border: 2px solid var(--background-detail-colour);
+  border-left: none;
+  padding: 5px;
 }
 
 </style>
