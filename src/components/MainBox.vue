@@ -2,10 +2,11 @@
   <div id="main-box">
     <div class="column">
       <Identification name="Controls" />
+      
     </div>
     <div class="column">
       <div class="row">
-        <Identification name="Result" />
+        <ResultBox />
       </div>
       <div class="row">
         <Identification name="Code" />
@@ -16,11 +17,13 @@
 
 <script>
   import Identification from "./Identification";
+  import ResultBox from "./result/ResultBox.vue";
 
   export default {
     name: 'MainBox',
     components: {
       Identification,
+      ResultBox,
     }
   }
 </script>
