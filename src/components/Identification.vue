@@ -13,6 +13,7 @@
 
 <style>
   #identification {
+    position: absolute;
     color: var(--primary-colour);
     padding: 5px 10px;
     background-color: var(--background-colour);
@@ -20,5 +21,6 @@
     margin: 5px;
     border-radius: 5px;
     font-size: 18px;
+    font-weight: 400;
   }
 </style>
