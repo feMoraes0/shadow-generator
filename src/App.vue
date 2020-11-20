@@ -16,11 +16,11 @@ export default {
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
 
 :root {
-  --background-colour: #232323;
-  --background-detail-colour: #282828;
+  --background-colour: #F7F7F7;
+  --background-detail-colour: #E6E7E8;
   --primary-colour: #FD4949;
 }
 
@@ -30,6 +30,7 @@ export default {
   box-sizing: border-box;
   text-decoration: none;
   font-family: 'Roboto', sans-serif;
+  font-weight: 300;
 }
 
 #app {
