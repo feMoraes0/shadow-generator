@@ -1,10 +1,16 @@
 <template>
   <div id="app">
     <Title>Shadow Generator</Title>
-    <div class="controls">
-      <InputRange :inputValue=horizontalLength :updateInputValue=updatehorizontalLength label="Horizontal length"/>
-      <div class="gap" />
-      <InputRange :inputValue=verticalLength :updateInputValue=updateVerticalLength label="Vertical length"/>
+    <div class="gap" />
+    <div class="row">
+      <div class="controls">
+        <InputRange :inputValue=horizontalLength :updateInputValue=updatehorizontalLength min="-100" label="Horizontal length"/>
+        <div class="gap" />
+        <InputRange :inputValue=verticalLength :updateInputValue=updateVerticalLength min="-100" label="Vertical length"/>
+      </div>
+      <div class="results">
+        <ResultBox :horizontal="horizontalLength" :vertical="verticalLength" />
+      </div>
     </div>
   </div>
 </template>
@@ -12,25 +18,31 @@
 <script>
   import Title from './components/Title';
   import InputRange from './components/InputRange';
+  import ResultBox from './components/ResultBox';
 
   export default {
     name: 'App',
     components: {
       Title,
-      InputRange
+      InputRange,
+      ResultBox
     },
     data: function () {
       return {
         horizontalLength: 0,
         verticalLength: 0,
+        opacity: 0.5,
       }
     },
     methods: {
       updatehorizontalLength(newValue) {
-        this.horizontalLength = newValue;
+        this.horizontalLength = Number(newValue);
       },
       updateVerticalLength(newValue) {
-        this.verticalLength = newValue;
+        this.verticalLength = Number(newValue);
+      },
+      updateOpacity(newOpacity) {
+        this.opacity = Number(newOpacity);
       }
     }
   }
@@ -64,11 +76,25 @@
     padding-top: 50px;
   }
 
+  #app .row {
+    width: 60vw;
+    display: flex;
+    flex-direction: row;
+  }
+
   #app .controls {
-    width: 30%;
+    width: 40%;
+    padding: 30px;
+  }
+
+  #app .results {
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   #app .gap {
-    margin: 15px 0px;
+    margin: 30px 0px;
   }
 </style>

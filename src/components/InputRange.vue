@@ -6,8 +6,9 @@
     </div>
     <input
       type="range"
-      min="0"
-      max="100"
+      :min="min"
+      :max="max"
+      :step="step"
       v-bind:value="inputValue"
       v-on:input="updateInputValue($event.target.value)"
     />
@@ -19,7 +20,19 @@
     name: "InputRange",
     props: {
       label: String,
-      inputValue: String,
+      inputValue: Number,
+      min: {
+        type: String,
+        default: "0",
+      },
+      max: {
+        type: String,
+        default: "100"
+      },
+      step: {
+        type: String,
+        default: "1",
+      },
       updateInputValue: Function
     }
   }
