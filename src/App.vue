@@ -7,9 +7,18 @@
         <InputRange :inputValue=horizontalLength :updateInputValue=updatehorizontalLength min="-100" label="Horizontal length"/>
         <div class="gap" />
         <InputRange :inputValue=verticalLength :updateInputValue=updateVerticalLength min="-100" label="Vertical length"/>
+        <div class="gap" />
+        <InputRange :inputValue=blurRadius :updateInputValue=updateBlurRadius min="-100" label="Blur radius"/>
+        <div class="gap" />
+        <InputRange :inputValue=spreadRadius :updateInputValue=updateSpreadRadius min="-100" label="Spread radius"/>
       </div>
       <div class="results">
-        <ResultBox :horizontal="horizontalLength" :vertical="verticalLength" />
+        <ResultBox
+          :horizontal="horizontalLength"
+          :vertical="verticalLength"
+          :spreadRadius="spreadRadius"
+          :blurRadius="blurRadius"
+        />
       </div>
     </div>
   </div>
@@ -32,6 +41,8 @@
         horizontalLength: 0,
         verticalLength: 0,
         opacity: 0.5,
+        spreadRadius: 0,
+        blurRadius: 0,
       }
     },
     methods: {
@@ -43,6 +54,12 @@
       },
       updateOpacity(newOpacity) {
         this.opacity = Number(newOpacity);
+      },
+      updateSpreadRadius(newSpreadRadius) {
+        this.spreadRadius = Number(newSpreadRadius);
+      },
+      updateBlurRadius(newBlurRadius) {
+        this.blurRadius = Number(newBlurRadius);
       }
     }
   }

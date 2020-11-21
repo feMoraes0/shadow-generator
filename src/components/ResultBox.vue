@@ -1,5 +1,5 @@
 <template>
-  <div v-bind:style="'box-shadow: ' + this.horizontal + 'px ' + this.vertical  + 'px 8px 10px #888888'" />
+  <div v-bind:style="'box-shadow: ' + this.horizontal + 'px ' + this.vertical  + 'px ' + blurRadius + 'px ' + spreadRadius + 'px #888888'" />
 </template>
 
 <script>
@@ -13,6 +13,8 @@
     props: {
       horizontal: Number,
       vertical: Number,
+      spreadRadius: Number,
+      blurRadius: Number,
     }
   }
 </script>
