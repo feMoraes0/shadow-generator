@@ -8,9 +8,11 @@
         <div class="gap" />
         <InputRange :inputValue=verticalLength :updateInputValue=updateVerticalLength min="-100" label="Vertical length"/>
         <div class="gap" />
-        <InputRange :inputValue=blurRadius :updateInputValue=updateBlurRadius min="-100" label="Blur radius"/>
+        <InputRange :inputValue=blurRadius :updateInputValue=updateBlurRadius min="0" label="Blur radius"/>
         <div class="gap" />
         <InputRange :inputValue=spreadRadius :updateInputValue=updateSpreadRadius min="-100" label="Spread radius"/>
+        <div class="gap" />
+        <InputColour :inputValue=colour :updateInputValue=updateColour label="Colour"/>
       </div>
       <div class="results">
         <ResultBox
@@ -18,6 +20,7 @@
           :vertical="verticalLength"
           :spreadRadius="spreadRadius"
           :blurRadius="blurRadius"
+          :colour="colour"
         />
       </div>
     </div>
@@ -27,6 +30,7 @@
 <script>
   import Title from './components/Title';
   import InputRange from './components/InputRange';
+  import InputColour from './components/InputColour';
   import ResultBox from './components/ResultBox';
 
   export default {
@@ -34,6 +38,7 @@
     components: {
       Title,
       InputRange,
+      InputColour,
       ResultBox
     },
     data: function () {
@@ -43,6 +48,7 @@
         opacity: 0.5,
         spreadRadius: 0,
         blurRadius: 0,
+        colour: "#000"
       }
     },
     methods: {
@@ -60,6 +66,10 @@
       },
       updateBlurRadius(newBlurRadius) {
         this.blurRadius = Number(newBlurRadius);
+      },
+      updateColour(newColour) {
+        console.log(newColour);
+        this.colour = String(newColour)
       }
     }
   }
